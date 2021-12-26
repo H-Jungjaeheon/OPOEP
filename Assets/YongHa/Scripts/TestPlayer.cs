@@ -19,8 +19,8 @@ public class TestPlayer : MonoBehaviour
     void Move()
     {
         if (Input.GetKey(KeyCode.A))
-            transform.Translate(Vector2.left*speed*Time.deltaTime);
-        if(Input.GetKey(KeyCode.D))
-            transform.Translate(Vector2.right*speed*Time.deltaTime);
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.D))
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 }

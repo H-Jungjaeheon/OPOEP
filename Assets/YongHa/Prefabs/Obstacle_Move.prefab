@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1733513637564205762}
   - component: {fileID: 1733513637564205761}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Obstacle_Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95dfc763bc8a10479000200eb844278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movetype: 1
-  speed: 3
+  movetype: 2
+  speed: 0
 --- !u!212 &1733513637564205766
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.30914912, g: 0.9811321, b: 0.9315833, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

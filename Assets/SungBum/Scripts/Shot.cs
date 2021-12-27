@@ -13,7 +13,7 @@ public class Shot : MonoBehaviour
     public LineCtrl LC;
 
     Camera cam;
-    Vector2 force;
+    public Vector2 force;
     Vector3 startPoint;
     Vector3 endPoint;
 

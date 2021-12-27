@@ -8,50 +8,59 @@ public class Obstacle : MonoBehaviour
     int movetype;
     [SerializeField]
     float speed;
+    public bool dir = false;
+
+    SpriteRenderer sprite;
+    CapsuleCollider2D col;
 
     Vector2 curpos;
+    float posx;
+    int MO;
+
     void Start()
     {
+        col = GetComponent<CapsuleCollider2D>();
+        sprite = GetComponent<SpriteRenderer>();
         curpos = transform.position;
     }
 
     void Update()
     {
-        MoveLogic();
-
-    }
-
-    void MoveLogic()
-    {
+        posx = transform.position.x;
         switch (movetype)
         {
             case 1:
                 transform.Translate(Vector2.down * speed * Time.deltaTime);
                 break;
             case 2:
-                transform.Translate(Vector2.down * speed * Time.deltaTime);
-                if (Random.Range(0, 2) < 1)
-                    transform.Translate(Vector2.left * 2 * Time.deltaTime);
-                else
-                    transform.Translate(Vector2.left * 2 * Time.deltaTime);
+                MoveObstacle();
                 break;
             case 3:
-
                 break;
             default:
                 break;
         }
-        if (transform.position.y <= -5f)
-            Destroy(gameObject);
     }
 
     void MoveObstacle()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
-        if (Random.Range(0, 2) < 1)
-            transform.Translate(Vector2.left * 2 * Time.deltaTime);
-        else
-            transform.Translate(Vector2.left * 2 * Time.deltaTime);
+        print(posx);
+        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        if (posx <= -2f && !dir)
+        {
+            transform.Rotate(new Vector2(0, -180));
+            dir = true;
+        }
+        else if (posx >= 0f && dir)
+        {
+            transform.Rotate(new Vector2(0,180));
+            dir = false;
+        }
+
+    }
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

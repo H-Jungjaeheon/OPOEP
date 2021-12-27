@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8709327047058903395}
   - component: {fileID: 8709327047058903392}
   - component: {fileID: 8709327047058903393}
-  - component: {fileID: 8709327047058903407}
   - component: {fileID: 8709327047058903406}
   - component: {fileID: 8709327047058903405}
+  - component: {fileID: 1107004534254527081}
   m_Layer: 0
   m_Name: KingKong
   m_TagString: Untagged
@@ -124,23 +124,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8709327047058903407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8709327047058903396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459d1be0eeed13a42826cd6ab59fd9cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 10
-  rb: {fileID: 8709327047058903392}
-  minPower: {x: -2, y: -2}
-  maxPower: {x: 1, y: 1}
-  LC: {fileID: 0}
 --- !u!120 &8709327047058903406
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -259,3 +242,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lr: {fileID: 8709327047058903406}
+--- !u!114 &1107004534254527081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8709327047058903396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81927be16e0bc43ab4b898d3ed93f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LC: {fileID: 0}

@@ -10,7 +10,7 @@ public class Princess : MonoBehaviour
     void Start()
     {
         //Instantiate(Princessobj, new Vector2(Random.Range(-2, 3), 1), Quaternion.identity);
-        Invoke("Test", 0.5f);
+        Invoke("Test", 1f);
     }
 
     void Update()
@@ -29,6 +29,6 @@ public class Princess : MonoBehaviour
 
     void Test()
     {
-        Instantiate(Princessobj, new Vector2(Random.Range(-2, 3), GameObject.Find("Main Camera").GetComponent<Transform>().position.y*1.5f), Quaternion.identity);
+        Instantiate(Princessobj, new Vector2(Random.Range(-2, 3), GameObject.Find("Main Camera").GetComponent<Transform>().position.y), Quaternion.identity);
     }
 }

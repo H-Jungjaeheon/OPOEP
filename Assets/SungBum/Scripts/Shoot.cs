@@ -6,18 +6,21 @@ public class Shoot : MonoBehaviour
 {
     public LineCtrl LC;
 
-    Vector3 PlayerPos;
-    Vector3 MovePlayerPos;
+    Vector2 PlayerPos;
+    Vector2 MovePlayerPos;
 
     Camera cam;
-    Vector3 startPoint;
-    Vector3 endPoint;
+    Vector2 startPoint;
+    Vector2 endPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
         LC = GetComponent<LineCtrl>();
+
+        PlayerPos = transform.position;
+        MovePlayerPos = PlayerPos;
     }
 
     // Update is called once per frame
@@ -31,20 +34,17 @@ public class Shoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-            startPoint.z = 15;
         }
 
         if (Input.GetMouseButton(0))
         {
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-            startPoint.z = 15;
             LC.RenderLine(startPoint, currentPoint);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-            startPoint.z = 15;
 
             MovePlayerPos = PlayerPos + (startPoint - endPoint);
 

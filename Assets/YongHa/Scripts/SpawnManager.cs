@@ -18,26 +18,31 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     GameObject player;
 
+    float posy;
     void Start()
     {
-        player = GameObject.Find("Player_test").gameObject;
+
+        // player = GameObject.Find("Player_test").gameObject;
+        player = GameObject.Find("KingKong").gameObject;
     }
 
     private void Update()
     {
+        posy = player.transform.position.y;
+
         //Spawn();
-        TestSpawn();
+        //TestSpawn();
     }
     void TestSpawn()
     {
         if (Test)
         {
             if (Input.GetKeyDown(KeyCode.O))
-                Instantiate(Obstacles[0], new Vector2(0, 3), Quaternion.identity);
+                Instantiate(Obstacles[0], new Vector2(0, posy + 3), Quaternion.identity);
             if (Input.GetKeyDown(KeyCode.M))
-                Instantiate(Obstacles[1], new Vector2(0, 3), Quaternion.identity);
+                Instantiate(Obstacles[1], new Vector2(0, posy + 3), Quaternion.identity);
             if (Input.GetKeyDown(KeyCode.F))
-                Instantiate(Obstacles[2], new Vector2(0, 3), Quaternion.identity);
+                Instantiate(Obstacles[2], new Vector2(0, posy + 3), Quaternion.identity);
         }
     }
     void Spawn()
@@ -45,10 +50,10 @@ public class SpawnManager : MonoBehaviour
         SpawnCur += Time.deltaTime;
         if (SpawnCur >= SpawnDelay)
         {
-            Instantiate(Obstacles[Random.Range(0, 3)], new Vector2(pos[Random.Range(0, 3)], player.transform.position.y + 10),
+            Instantiate(Obstacles[Random.Range(0, 3)], new Vector2(pos[Random.Range(0, 3)], posy + 2),
                 Quaternion.identity, this.transform);
             SpawnCur = 0;
         }
-
     }
+
 }

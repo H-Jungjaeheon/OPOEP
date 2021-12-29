@@ -8,54 +8,87 @@ public class Obstacle : MonoBehaviour
     int movetype;
     [SerializeField]
     float speed;
-    public bool dir = false;
+    [SerializeField]
+    bool dir = false;
 
-    SpriteRenderer sprite;
-    CapsuleCollider2D col;
+    [SerializeField]
+    GameObject player;
 
-    Vector2 curpos;
+    public int MO;
     float posx;
-    int MO;
 
+    [SerializeField]
+    GameObject Warning;
+    GameObject Camera;
+    float delay = 0.5f;
+
+    bool Spawn = false;
     void Start()
     {
-        col = GetComponent<CapsuleCollider2D>();
-        sprite = GetComponent<SpriteRenderer>();
-        curpos = transform.position;
+        Camera = GameObject.Find("Main Camera");
+        player = GameObject.Find("KingKong");
+        posx = transform.position.x;
     }
 
     void Update()
     {
-        posx = transform.position.x;
         switch (movetype)
         {
             case 1:
-                transform.Translate(Vector2.down * speed * Time.deltaTime);
                 break;
             case 2:
                 MoveObstacle();
                 break;
             case 3:
+                FallObstacle();
                 break;
             default:
                 break;
         }
     }
+    void FallObstacle()
+    {
+        if (transform.position.y - player.transform.position.y <= 10 && !Spawn)
+        {
+            Instantiate(Warning, new Vector2(transform.position.x, Camera.transform.position.y + 2), Quaternion.identity);
+            if (GameObject.Find("Warning") == null)
+                transform.Translate(Vector2.down * speed * Time.deltaTime);
+            Spawn = true;
+        }
+    }
 
     void MoveObstacle()
     {
-        print(posx);
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
-        if (posx <= -2f && !dir)
+        float curposx = transform.position.x;
+        if (MO == 0)
         {
-            transform.Rotate(new Vector2(0, -180));
-            dir = true;
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            if (posx - 0.7f >= curposx && !dir)
+            {
+                transform.Rotate(new Vector2(0, -180));
+                dir = true;
+            }
+            else if (posx + 0.7f <= curposx && dir)
+            {
+                transform.Rotate(new Vector2(0, 180));
+                dir = false;
+            }
         }
-        else if (posx >= 0f && dir)
+        else
         {
-            transform.Rotate(new Vector2(0,180));
-            dir = false;
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            if (posx + 0.7f <= curposx && !dir)
+            {
+                transform.Rotate(new Vector2(0, -180));
+                dir = true;
+            }
+            else if (posx - 0.7f >= curposx && dir)
+            {
+                transform.Rotate(new Vector2(0, 180));
+                dir = false;
+            }
         }
+
 
     }
     void OnBecameInvisible()

@@ -13,6 +13,8 @@ public class Shoot : MonoBehaviour
     Vector2 startPoint;
     Vector2 endPoint;
 
+    public float Power;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,7 @@ public class Shoot : MonoBehaviour
         PlayerPos = transform.position;
 
         if (0.1f < Vector3.Distance(PlayerPos, MovePlayerPos))
-            this.gameObject.transform.position = Vector3.Lerp(PlayerPos, MovePlayerPos, 5f * Time.deltaTime);
+            this.gameObject.transform.position = Vector3.Lerp(PlayerPos, MovePlayerPos, Power * Time.deltaTime);
 
         if (Input.GetMouseButtonDown(0))
         {

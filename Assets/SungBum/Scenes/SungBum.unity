@@ -659,7 +659,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -690,6 +690,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1107004534254527081, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
+      propertyPath: ComboTxt
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107004534254527081, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
+      propertyPath: parentTransform
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8709327047058903394, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
       propertyPath: m_RootOrder
       value: 1

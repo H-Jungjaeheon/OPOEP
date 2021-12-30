@@ -6,7 +6,9 @@ public class GameMgr : MonoBehaviour
 {
     public bool Buff1on, Buff2on, Buff3on;
     public bool Shield;
+    public bool GameStart = false;
     public GameObject Princessobj;
+    public GameObject StopButton;
 
     void Start()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    public static Obstacle Instance { get; private set; }
     [SerializeField]
     int movetype;
     [SerializeField]
@@ -20,7 +21,8 @@ public class Obstacle : MonoBehaviour
     [SerializeField]
     GameObject Warning;
     GameObject Camera;
-    float delay = 0.5f;
+
+    public float delay = 0.5f;
 
     bool Spawn = false;
     void Start()
@@ -46,16 +48,23 @@ public class Obstacle : MonoBehaviour
                 break;
         }
     }
-    void FallObstacle()
+    public void FallObstacle()
     {
         if (transform.position.y - player.transform.position.y <= 10 && !Spawn)
         {
             Instantiate(Warning, new Vector2(transform.position.x, Camera.transform.position.y + 2), Quaternion.identity);
-            if (GameObject.Find("Warning") == null)
-                transform.Translate(Vector2.down * speed * Time.deltaTime);
+            Invoke("Fall",0.5f);
             Spawn = true;
         }
+        if(transform.position.y - player.transform.position.y <= 8&&GameObject.Find("Warning(Clone)")==null)
+            this.transform.Translate(Vector2.down*speed * Time.deltaTime);
+        
     }
+    void Fall()
+    {
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
+    }
+
 
     void MoveObstacle()
     {
@@ -90,10 +99,6 @@ public class Obstacle : MonoBehaviour
         }
 
 
-    }
-    void OnBecameInvisible()
-    {
-        Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

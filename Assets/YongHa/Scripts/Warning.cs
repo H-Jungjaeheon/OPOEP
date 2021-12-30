@@ -7,14 +7,14 @@ using DG.Tweening;
 public class Warning : MonoBehaviour
 {
     SpriteRenderer sprite;
+    Obstacle obstacle;
 
     float time;
 
-    public float delay = 1;
+    float delay=0.3f;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-
     }
 
     void Update()
@@ -30,6 +30,7 @@ public class Warning : MonoBehaviour
             if (time > 1)
                 time = 0;
         }
+        
         time += Time.deltaTime;
     }
 }

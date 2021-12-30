@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class GameMgr : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool Buff1on, Buff2on, Buff3on;
+    public bool Shield;
     void Start()
     {
-        
+        if (Buff3on == true)
+        {
+            Shield = true;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

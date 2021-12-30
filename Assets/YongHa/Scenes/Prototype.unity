@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5a8c2049b2bab4bbebf3ba412d2072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 4
 --- !u!1 &1625762885
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +547,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9044703742760399146, guid: 5cec83d35940e0f4197331c641cfc521, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044703744286795226, guid: 5cec83d35940e0f4197331c641cfc521, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

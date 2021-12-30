@@ -71,7 +71,14 @@ public class Obstacle : MonoBehaviour
         float curposx = transform.position.x;
         if (MO == 0)
         {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff2on == true)
+            {
+                transform.Translate(Vector2.left * speed * 0.8f * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(Vector2.left * speed * Time.deltaTime);
+            }
             if (posx - 0.7f >= curposx && !dir)
             {
                 transform.Rotate(new Vector2(0, -180));
@@ -85,7 +92,14 @@ public class Obstacle : MonoBehaviour
         }
         else
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff2on == true)
+            {
+                transform.Translate(Vector2.right * speed * 0.8f * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(Vector2.right * speed * Time.deltaTime);
+            }
             if (posx + 0.7f <= curposx && !dir)
             {
                 transform.Rotate(new Vector2(0, -180));
@@ -104,8 +118,26 @@ public class Obstacle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            TestPlayer temp = other.GetComponent<TestPlayer>();
-            temp.Hp--;
+            if (GameObject.Find("GameManager").GetComponent<GameMgr>().Shield == true)
+            {
+                GameObject.Find("GameManager").GetComponent<GameMgr>().Shield = false;
+            }
+            else
+            {
+                if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff1on == true)
+                {
+                    if (Random.Range(0, 101) >= 20)
+                    {
+                        TestPlayer temp = other.GetComponent<TestPlayer>();
+                        temp.Hp--;
+                    }
+                }
+                else
+                {
+                    TestPlayer temp = other.GetComponent<TestPlayer>();
+                    temp.Hp--;
+                }
+            }
             Destroy(this.gameObject);
         }
     }

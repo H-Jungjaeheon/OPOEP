@@ -15,7 +15,7 @@ public class Princess : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +24,19 @@ public class Princess : MonoBehaviour
         {
             princesscount += 1;
             Destroy(this.gameObject);
+        }
+
+        if (princesscount >= 30)
+        {
+            GameObject.Find("GameManager").GetComponent<GameMgr>().Buff1on = true;
+        }
+        if (princesscount >= 75)
+        {
+            GameObject.Find("GameManager").GetComponent<GameMgr>().Buff2on = true;
+        }
+        if (princesscount >= 135)
+        {
+            GameObject.Find("GameManager").GetComponent<GameMgr>().Buff3on = true;
         }
     }
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8709327047058903406}
   - component: {fileID: 8709327047058903405}
   - component: {fileID: 1107004534254527081}
+  - component: {fileID: 8709327048115046393}
   m_Layer: 0
   m_Name: KingKong
   m_TagString: Untagged
@@ -256,3 +257,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LC: {fileID: 0}
   Power: 6
+  ComboTxt: {fileID: 0}
+  parentTransform: {fileID: 0}
+--- !u!114 &8709327048115046393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8709327047058903396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024ebc0748bc7ba44abb948d1ece0040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentTransform: {fileID: 0}
+  hudTextPrefab: {fileID: 4551852744318512089, guid: 8ac99feab5405c14f9c3549a9ccb6296, type: 3}

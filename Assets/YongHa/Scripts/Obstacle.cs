@@ -4,35 +4,40 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    [Header("장애물 설정")]
     [SerializeField]
     int movetype;
     [SerializeField]
     float speed;
-    [SerializeField]
-    bool dir = false;
-    [SerializeField]
-    float Setdistance = 0.5f;
 
     [SerializeField]
+    float Setdistance = 0.5f;
+    bool dir = false;
+
+
     GameObject player;
 
     int MO;
     float posx;
 
+    [Header("Warning")]
     [SerializeField]
     GameObject Warning;
-    GameObject Camera;
+    public float WarningTime;
+    public static float Warningtime;
 
-    public float delay = 0.5f;
+    float delay = 0.5f;
 
     bool Spawn = false;
+    private void Awake()
+    {
+        Warningtime = WarningTime;
+    }
     void Start()
     {
-        Camera = GameObject.Find("Main Camera");
         player = GameObject.Find("KingKong");
         posx = transform.position.x;
-
-
+        MO = Random.Range(0, 2);
     }
 
     void Update()
@@ -55,7 +60,7 @@ public class Obstacle : MonoBehaviour
     {
         if (transform.position.y - player.transform.position.y <= 10 && !Spawn)
         {
-            Instantiate(Warning, new Vector2(transform.position.x, Camera.transform.position.y + 2), Quaternion.identity);
+            Instantiate(Warning, new Vector2(transform.position.x, GameObject.Find("Main Camera").transform.position.y + 2), Quaternion.identity);
             Spawn = true;
         }
         if (transform.position.y - player.transform.position.y <= 8 && GameObject.Find("Warning(Clone)") == null)
@@ -100,27 +105,20 @@ public class Obstacle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (GameObject.Find("GameManager").GetComponent<GameMgr>().Shield == true)
-            {
+            if (GameObject.Find("GameManager").GetComponent<GameMgr>().Shield)
                 GameObject.Find("GameManager").GetComponent<GameMgr>().Shield = false;
-            }
             else
             {
-                if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff1on == true)
+                TestPlayer temp = other.GetComponent<TestPlayer>();
+                if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff1on)
                 {
                     if (Random.Range(0, 101) >= 20)
-                    {
-                        TestPlayer temp = other.GetComponent<TestPlayer>();
                         temp.Hp--;
-                    }
                 }
                 else
-                {
-                    TestPlayer temp = other.GetComponent<TestPlayer>();
                     temp.Hp--;
-                }
             }
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 

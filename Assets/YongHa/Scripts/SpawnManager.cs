@@ -21,8 +21,6 @@ public class SpawnManager : MonoBehaviour
     float posy;
     void Start()
     {
-
-        // player = GameObject.Find("Player_test").gameObject;
         player = GameObject.Find("KingKong").gameObject;
     }
 

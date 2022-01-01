@@ -10,13 +10,12 @@ public class BackGroundController : MonoBehaviour
 
     void Start()
     {
+        Col = GetComponent<CapsuleCollider2D>();
         Sizey = Col.size.y; 
     }
     void Update()
     {
-        //transform.Translate(Vector2.down * speed * Time.deltaTime);
-        //if (transform.position.y <= -10)
-        //    transform.position = (Vector2)transform.position + new Vector2(0, 20);
+        
     }
     void OnBecameInvisible()
     {

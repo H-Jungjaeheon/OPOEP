@@ -34,7 +34,6 @@ public class SoundManager : Singleton<SoundManager>
                 audioSE.clip = find.clip;
                 audioSE.loop = false;
                 audioSE.Play();
-
             }
         }
     }

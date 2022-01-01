@@ -170,7 +170,10 @@ MonoBehaviour:
   Buff2on: 0
   Buff3on: 0
   Shield: 0
+  GameStart: 0
   Princessobj: {fileID: 663800037270343338, guid: d809c8fa81ce98f47a0c8cdeb9d28802, type: 3}
+  StopButton: {fileID: 0}
+  SpawnInterval: 70
 --- !u!1 &1335337332
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709327047058903395, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8709327047058903396, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
       propertyPath: m_Name

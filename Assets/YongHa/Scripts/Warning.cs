@@ -19,6 +19,7 @@ public class Warning : MonoBehaviour
 
     void Update()
     {
+        transform.position = new Vector2(0, GameObject.Find("Main Camera").transform.position.y +2);
         Destroy(gameObject, delay);
         if (time < 0.5f)
         {

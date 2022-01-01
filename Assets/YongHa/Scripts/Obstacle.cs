@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public static Obstacle Instance { get; private set; }
     [SerializeField]
     int movetype;
     [SerializeField]
     float speed;
     [SerializeField]
     bool dir = false;
+    [SerializeField]
+    float Setdistance = 0.5f;
 
     [SerializeField]
     GameObject player;
 
-    public int MO;
+    int MO;
     float posx;
 
     [SerializeField]
@@ -30,6 +31,8 @@ public class Obstacle : MonoBehaviour
         Camera = GameObject.Find("Main Camera");
         player = GameObject.Find("KingKong");
         posx = transform.position.x;
+
+
     }
 
     void Update()
@@ -53,38 +56,26 @@ public class Obstacle : MonoBehaviour
         if (transform.position.y - player.transform.position.y <= 10 && !Spawn)
         {
             Instantiate(Warning, new Vector2(transform.position.x, Camera.transform.position.y + 2), Quaternion.identity);
-            Invoke("Fall",0.5f);
             Spawn = true;
         }
-        if(transform.position.y - player.transform.position.y <= 8&&GameObject.Find("Warning(Clone)")==null)
-            this.transform.Translate(Vector2.down*speed * Time.deltaTime);
-        
+        if (transform.position.y - player.transform.position.y <= 8 && GameObject.Find("Warning(Clone)") == null)
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
-    void Fall()
-    {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
-    }
-
 
     void MoveObstacle()
     {
         float curposx = transform.position.x;
+        if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff2on)
+            speed *= 0.8f;
         if (MO == 0)
         {
-            if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff2on == true)
-            {
-                transform.Translate(Vector2.left * speed * 0.8f * Time.deltaTime);
-            }
-            else
-            {
-                transform.Translate(Vector2.left * speed * Time.deltaTime);
-            }
-            if (posx - 0.7f >= curposx && !dir)
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            if (posx - Setdistance >= curposx && !dir)
             {
                 transform.Rotate(new Vector2(0, -180));
                 dir = true;
             }
-            else if (posx + 0.7f <= curposx && dir)
+            else if (posx + Setdistance <= curposx && dir)
             {
                 transform.Rotate(new Vector2(0, 180));
                 dir = false;
@@ -92,27 +83,18 @@ public class Obstacle : MonoBehaviour
         }
         else
         {
-            if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff2on == true)
-            {
-                transform.Translate(Vector2.right * speed * 0.8f * Time.deltaTime);
-            }
-            else
-            {
-                transform.Translate(Vector2.right * speed * Time.deltaTime);
-            }
-            if (posx + 0.7f <= curposx && !dir)
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            if (posx + Setdistance <= curposx && !dir)
             {
                 transform.Rotate(new Vector2(0, -180));
                 dir = true;
             }
-            else if (posx - 0.7f >= curposx && dir)
+            else if (posx - Setdistance >= curposx && dir)
             {
                 transform.Rotate(new Vector2(0, 180));
                 dir = false;
             }
         }
-
-
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

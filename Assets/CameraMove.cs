@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
+    public float Speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,6 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0.0f, 1.0f * Time.deltaTime, 0.0f);
+        transform.Translate(0.0f, Speed * Time.deltaTime, 0.0f);
     }
 }

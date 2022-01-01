@@ -8,66 +8,118 @@ public class Obstacle : MonoBehaviour
     int movetype;
     [SerializeField]
     float speed;
-    public bool dir = false;
+    [SerializeField]
+    bool dir = false;
+    [SerializeField]
+    float Setdistance = 0.5f;
 
-    SpriteRenderer sprite;
-    CapsuleCollider2D col;
+    [SerializeField]
+    GameObject player;
 
-    Vector2 curpos;
-    float posx;
     int MO;
+    float posx;
 
+    [SerializeField]
+    GameObject Warning;
+    GameObject Camera;
+
+    public float delay = 0.5f;
+
+    bool Spawn = false;
     void Start()
     {
-        col = GetComponent<CapsuleCollider2D>();
-        sprite = GetComponent<SpriteRenderer>();
-        curpos = transform.position;
+        Camera = GameObject.Find("Main Camera");
+        player = GameObject.Find("KingKong");
+        posx = transform.position.x;
+
+
     }
 
     void Update()
     {
-        posx = transform.position.x;
         switch (movetype)
         {
             case 1:
-                transform.Translate(Vector2.down * speed * Time.deltaTime);
                 break;
             case 2:
                 MoveObstacle();
                 break;
             case 3:
+                FallObstacle();
                 break;
             default:
                 break;
         }
     }
+    public void FallObstacle()
+    {
+        if (transform.position.y - player.transform.position.y <= 10 && !Spawn)
+        {
+            Instantiate(Warning, new Vector2(transform.position.x, Camera.transform.position.y + 2), Quaternion.identity);
+            Spawn = true;
+        }
+        if (transform.position.y - player.transform.position.y <= 8 && GameObject.Find("Warning(Clone)") == null)
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
+    }
 
     void MoveObstacle()
     {
-        print(posx);
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
-        if (posx <= -2f && !dir)
+        float curposx = transform.position.x;
+        if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff2on)
+            speed *= 0.8f;
+        if (MO == 0)
         {
-            transform.Rotate(new Vector2(0, -180));
-            dir = true;
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            if (posx - Setdistance >= curposx && !dir)
+            {
+                transform.Rotate(new Vector2(0, -180));
+                dir = true;
+            }
+            else if (posx + Setdistance <= curposx && dir)
+            {
+                transform.Rotate(new Vector2(0, 180));
+                dir = false;
+            }
         }
-        else if (posx >= 0f && dir)
+        else
         {
-            transform.Rotate(new Vector2(0,180));
-            dir = false;
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            if (posx + Setdistance <= curposx && !dir)
+            {
+                transform.Rotate(new Vector2(0, -180));
+                dir = true;
+            }
+            else if (posx - Setdistance >= curposx && dir)
+            {
+                transform.Rotate(new Vector2(0, 180));
+                dir = false;
+            }
         }
-
-    }
-    void OnBecameInvisible()
-    {
-        Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            TestPlayer temp = other.GetComponent<TestPlayer>();
-            temp.Hp--;
+            if (GameObject.Find("GameManager").GetComponent<GameMgr>().Shield == true)
+            {
+                GameObject.Find("GameManager").GetComponent<GameMgr>().Shield = false;
+            }
+            else
+            {
+                if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff1on == true)
+                {
+                    if (Random.Range(0, 101) >= 20)
+                    {
+                        TestPlayer temp = other.GetComponent<TestPlayer>();
+                        temp.Hp--;
+                    }
+                }
+                else
+                {
+                    TestPlayer temp = other.GetComponent<TestPlayer>();
+                    temp.Hp--;
+                }
+            }
             Destroy(this.gameObject);
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    public static Shoot Instance  { get; private set; }
     public LineCtrl LC;
 
     Vector2 PlayerPos;
@@ -18,6 +19,10 @@ public class Shoot : MonoBehaviour
     public GameObject ComboTxt;
     public Transform parentTransform;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

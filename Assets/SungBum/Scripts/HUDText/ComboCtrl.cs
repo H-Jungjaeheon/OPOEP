@@ -11,7 +11,7 @@ public class ComboCtrl : MonoBehaviour
     private float moveTime = 1.5f;
 
     private RectTransform rectTransform;
-    private TextMeshPro textHud;
+    private TextMeshProUGUI textHud;
 
     private void OnDisable()
     {
@@ -22,7 +22,7 @@ public class ComboCtrl : MonoBehaviour
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        textHud = GetComponent<TextMeshPro>();
+        textHud = GetComponent<TextMeshProUGUI>();
     }
 
     public void Play(string text, Color color, Bounds bounds, float gap=0.1f)

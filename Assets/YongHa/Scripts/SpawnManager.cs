@@ -15,14 +15,17 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     bool Test;
 
+    [SerializeField]
+    GameObject player;
+
     void Start()
     {
-
+        player = GameObject.Find("Player_test").gameObject;
     }
 
-    void Update()
+    private void Update()
     {
-        Spawn();
+        //Spawn();
         TestSpawn();
     }
     void TestSpawn()
@@ -42,7 +45,7 @@ public class SpawnManager : MonoBehaviour
         SpawnCur += Time.deltaTime;
         if (SpawnCur >= SpawnDelay)
         {
-            Instantiate(Obstacles[Random.Range(0, 3)], new Vector2(pos[Random.Range(0, 3)], 3),
+            Instantiate(Obstacles[Random.Range(0, 3)], new Vector2(pos[Random.Range(0, 3)], player.transform.position.y + 10),
                 Quaternion.identity, this.transform);
             SpawnCur = 0;
         }

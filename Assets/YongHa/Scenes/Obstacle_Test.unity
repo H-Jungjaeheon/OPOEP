@@ -411,7 +411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267926064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -3.24, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -637,6 +637,7 @@ MonoBehaviour:
   - {fileID: 1733513637564205765, guid: da60415b03048f441821a65945b115bd, type: 3}
   SpawnDelay: 3
   Test: 1
+  player: {fileID: 0}
 --- !u!1 &1691644109
 GameObject:
   m_ObjectHideFlags: 0

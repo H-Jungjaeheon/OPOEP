@@ -40,7 +40,6 @@ public class HUDHp : MonoBehaviour
         GameObject clone = Instantiate(hudTextPrefab);
 
         clone.transform.SetParent(parentTransform);
-        Debug.Log("D");
         Bounds bounds = GetComponent<Collider2D>().bounds;
         clone.GetComponent<ComboCtrl>().Play(text, color, bounds);
     }

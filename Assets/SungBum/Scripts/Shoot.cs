@@ -16,9 +16,6 @@ public class Shoot : MonoBehaviour
 
     public float Power;
 
-    public GameObject ComboTxt;
-    public Transform parentTransform;
-
     private void Awake()
     {
         Instance = this;
@@ -31,8 +28,6 @@ public class Shoot : MonoBehaviour
 
         PlayerPos = transform.position;
         MovePlayerPos = PlayerPos;
-
-        parentTransform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -42,15 +37,6 @@ public class Shoot : MonoBehaviour
 
         if (0.1f < Vector3.Distance(PlayerPos, MovePlayerPos))
             this.gameObject.transform.position = Vector3.Lerp(PlayerPos, MovePlayerPos, Power * Time.deltaTime);
-
-        //else
-        //{
-        //    GameObject Clone = Instantiate(ComboTxt);
-        //    Clone.transform.SetParent(parentTransform);
-        //    Bounds bounds = GetComponent<Collider2D>().bounds;
-
-        //    Clone.GetComponent<ComboCtrl>().Play("combo x 1", Color.black, bounds);
-        //}
 
         if (Input.GetMouseButtonDown(0))
         {

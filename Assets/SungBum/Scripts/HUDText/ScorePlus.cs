@@ -40,7 +40,7 @@ public class ScorePlus : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            
+            SpawnHUDText("1000", Color.red);
         }
     }
 }

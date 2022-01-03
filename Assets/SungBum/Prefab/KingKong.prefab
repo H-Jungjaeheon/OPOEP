@@ -257,8 +257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LC: {fileID: 0}
   Power: 6
-  ComboTxt: {fileID: 0}
-  parentTransform: {fileID: 0}
 --- !u!114 &8709327048115046393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,4 +270,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 0}
-  hudTextPrefab: {fileID: 4551852744318512089, guid: 8ac99feab5405c14f9c3549a9ccb6296, type: 3}
+  hudTextPrefab: {fileID: 6125046452410549590, guid: 2b885573d08b2bb45b22eedeea8954cf, type: 3}

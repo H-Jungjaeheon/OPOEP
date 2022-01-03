@@ -14,7 +14,7 @@ public class Obstacle : MonoBehaviour
     float Setdistance = 0.5f;
     bool dir = false;
 
-
+    GameMgr GM;
     GameObject player;
 
     int MO;
@@ -24,18 +24,17 @@ public class Obstacle : MonoBehaviour
     [SerializeField]
     GameObject Warning;
     public float WarningTime;
-    public static float Warningtime;
 
     float delay = 0.5f;
 
     bool Spawn = false;
     private void Awake()
     {
-        Warningtime = WarningTime;
+        player = GameObject.FindGameObjectWithTag("Player");
+        GM = FindObjectOfType<GameMgr>();
     }
     void Start()
     {
-        player = GameObject.Find("KingKong");
         posx = transform.position.x;
         MO = Random.Range(0, 2);
     }
@@ -60,7 +59,8 @@ public class Obstacle : MonoBehaviour
     {
         if (transform.position.y - player.transform.position.y <= 10 && !Spawn)
         {
-            Instantiate(Warning, new Vector2(transform.position.x, GameObject.Find("Main Camera").transform.position.y + 2), Quaternion.identity);
+            GameObject warning = Instantiate(Warning, new Vector2(transform.position.x, GameObject.Find("Main Camera").transform.position.y + 2), Quaternion.identity);
+            warning.GetComponent<Warning>().delay = WarningTime;
             Spawn = true;
         }
         if (transform.position.y - player.transform.position.y <= 8 && GameObject.Find("Warning(Clone)") == null)
@@ -70,7 +70,7 @@ public class Obstacle : MonoBehaviour
     void MoveObstacle()
     {
         float curposx = transform.position.x;
-        if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff2on)
+        if (GM.Buff2on)
             speed *= 0.8f;
         if (MO == 0)
         {
@@ -105,18 +105,23 @@ public class Obstacle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (GameObject.Find("GameManager").GetComponent<GameMgr>().Shield)
-                GameObject.Find("GameManager").GetComponent<GameMgr>().Shield = false;
+            if (GM.Shield)
+                GM.Shield = false;
             else
             {
-                TestPlayer temp = other.GetComponent<TestPlayer>();
-                if (GameObject.Find("GameManager").GetComponent<GameMgr>().Buff1on)
+                if (GM.Buff1on)
                 {
-                    if (Random.Range(0, 101) >= 20)
-                        temp.Hp--;
+                    //if (Random.Range(0, 101) >= 20)
+                    //{
+                        
+                    //}
+
                 }
                 else
-                    temp.Hp--;
+                {
+
+                }
+
             }
             Destroy(gameObject);
         }

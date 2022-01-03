@@ -159,6 +159,7 @@ MonoBehaviour:
   GameStart: 0
   Princessobj: {fileID: 0}
   StopButton: {fileID: 0}
+  SpawnInterval: 0
 --- !u!4 &620986808
 Transform:
   m_ObjectHideFlags: 0
@@ -191,6 +192,10 @@ PrefabInstance:
     - target: {fileID: 5015683155809708182, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
       propertyPath: Setdistance
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384847544666379990, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
+      propertyPath: m_SortingOrder
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 7424059982381091666, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
       propertyPath: m_RootOrder
@@ -247,6 +252,10 @@ PrefabInstance:
     - target: {fileID: 7424059982381091677, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
       propertyPath: m_Name
       value: Map_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455844956405040659, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
+      propertyPath: WarningTime
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
@@ -547,6 +556,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4048649162905941040, guid: c84d65afa85d9934eadefe3513206e9b, type: 3}
+      propertyPath: WarningTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4962660339102228064, guid: c84d65afa85d9934eadefe3513206e9b, type: 3}
       propertyPath: m_Name
       value: Obstacle_Move
@@ -577,11 +590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7042723996695949403, guid: c84d65afa85d9934eadefe3513206e9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7042723996695949403, guid: c84d65afa85d9934eadefe3513206e9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 48.475
+      value: 57.39
       objectReference: {fileID: 0}
     - target: {fileID: 7042723996695949403, guid: c84d65afa85d9934eadefe3513206e9b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -658,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7317104035388798007, guid: 5cec83d35940e0f4197331c641cfc521, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 84.135
+      value: 101.98
       objectReference: {fileID: 0}
     - target: {fileID: 7317104035388798007, guid: 5cec83d35940e0f4197331c641cfc521, type: 3}
       propertyPath: m_LocalPosition.z

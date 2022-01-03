@@ -332,6 +332,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 468347694}
   BackgroundBlack: {fileID: 502441160}
+  GameStart: {fileID: 0}
+  Shop: {fileID: 0}
+  Setting: {fileID: 0}
+  StopButton: {fileID: 0}
+  Stop: 0
 --- !u!114 &468347694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +670,10 @@ MonoBehaviour:
   GameStart: 0
   Princessobj: {fileID: 0}
   StopButton: {fileID: 0}
+  SpawnInterval: 0
+  Require1: 0
+  Require2: 0
+  Require3: 0
 --- !u!4 &788920205
 Transform:
   m_ObjectHideFlags: 0

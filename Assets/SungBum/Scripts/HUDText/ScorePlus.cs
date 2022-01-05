@@ -9,12 +9,14 @@ public class ScorePlus : MonoBehaviour
     [SerializeField]
     private GameObject hudTextPrefab;
 
-    private void SpawnHUDText(string text, Color color)
+    private Vector2 startPosition;
+    private Vector2 endPosition;
+
+    public void SpawnHUDText(string text, Color color)
     {
         GameObject clone = Instantiate(hudTextPrefab);
 
         clone.transform.SetParent(parentTransform);
-        Debug.Log("D");
         Bounds bounds = GetComponent<Collider2D>().bounds;
         clone.GetComponent<ComboCtrl>().Play(text, color, bounds);
     }

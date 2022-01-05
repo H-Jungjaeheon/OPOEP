@@ -9,6 +9,8 @@ public class ComboCtrl : MonoBehaviour
     private float moveDistance = 100;
     [SerializeField]
     private float moveTime = 1.5f;
+    [SerializeField]
+    private ScorePlus scorePlus;
 
     private RectTransform rectTransform;
     private TextMeshProUGUI textHud;

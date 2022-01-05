@@ -14,7 +14,7 @@ public class DWTest : MonoBehaviour
     public bool Stop = false;
     void Start()
     {
-        Shoot.Instance.Power = 0;
+        Singleton<Shoot>.Instance.Power = 0;
         CameraMove.Instance.Speed = 0;
         Background.transform.DOScale(0, 0).SetEase(Ease.OutBack);
     }
@@ -32,7 +32,7 @@ public class DWTest : MonoBehaviour
     }
     public void OnButtonClick()
     {
-        Shoot.Instance.Power = 0;
+        Singleton<Shoot>.Instance.Power = 0;
         CameraMove.Instance.Speed = 0;
         Background.transform.DOScale(1, 1).SetEase(Ease.OutBack);
         Invoke("TimeStop", 0.8f);
@@ -53,7 +53,7 @@ public class DWTest : MonoBehaviour
     }
     public void GameStartClick()
     {
-        Shoot.Instance.Power = 6;
+        Singleton<Shoot>.Instance.Power = 6;
         CameraMove.Instance.Speed = 2;
         GameStart.transform.DOMove(new Vector3(500, -900, 0), 0.9f).SetEase(Ease.InBack);
         Shop.transform.DOMove(new Vector3(-200, 170, 0), 0.9f).SetEase(Ease.InBack);
@@ -77,7 +77,7 @@ public class DWTest : MonoBehaviour
         else if(Stop == true)
         {
             CameraMove.Instance.Speed = 2;
-            Shoot.Instance.Power = 6;
+            Singleton<Shoot>.Instance.Power = 6;
             Stop = false;
         }
     }

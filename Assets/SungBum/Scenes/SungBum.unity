@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &335832793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335832795}
+  - component: {fileID: 335832794}
+  m_Layer: 0
+  m_Name: InGameMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &335832794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335832793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8baefdb93ecbe48b91bf840d086f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 763171207}
+--- !u!4 &335832795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335832793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 84.14459, y: 6036.7573, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &467014499
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,11 +565,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1929756323 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8709327047058903394, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
-  m_PrefabInstance: {fileID: 8709327048115046391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1940786486
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,14 +770,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1107004534254527081, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
-      propertyPath: ComboTxt
-      value: 
-      objectReference: {fileID: 4551852744318512089, guid: 8ac99feab5405c14f9c3549a9ccb6296, type: 3}
-    - target: {fileID: 1107004534254527081, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
-      propertyPath: parentTransform
-      value: 
-      objectReference: {fileID: 1929756323}
     - target: {fileID: 8709327047058903394, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
       propertyPath: m_RootOrder
       value: 1

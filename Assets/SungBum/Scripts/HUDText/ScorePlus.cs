@@ -12,37 +12,25 @@ public class ScorePlus : MonoBehaviour
     private Vector2 startPosition;
     private Vector2 endPosition;
 
-    public void SpawnHUDText(string text, Color color)
+    public List<int> Score = new List<int>();
+
+    public void SpawnHUDText(string text1, string text2, Color color)
     {
         GameObject clone = Instantiate(hudTextPrefab);
 
         clone.transform.SetParent(parentTransform);
         Bounds bounds = GetComponent<Collider2D>().bounds;
-        clone.GetComponent<ComboCtrl>().Play(text, color, bounds);
+        clone.GetComponent<ComboCtrl>().Play(text1, text2, color, bounds);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    protected virtual void AddScore(int ComScore)
     {
-
+        Score.Add(ComScore);
+        InGameMgr.PScore += ComScore;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DelScore(int ComScore)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            SpawnHUDText("1000", Color.red);
-        }
+        Score.Remove(ComScore);
     }
 }

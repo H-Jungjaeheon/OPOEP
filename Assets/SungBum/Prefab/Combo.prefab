@@ -149,3 +149,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 200
   moveTime: 1
+  scorePlus: {fileID: 0}
+  shoot: {fileID: 0}

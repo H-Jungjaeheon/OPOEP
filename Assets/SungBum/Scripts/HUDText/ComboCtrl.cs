@@ -9,11 +9,13 @@ public class ComboCtrl : MonoBehaviour
     private float moveDistance = 100;
     [SerializeField]
     private float moveTime = 1.5f;
-    [SerializeField]
-    private ScorePlus scorePlus;
 
     private RectTransform rectTransform;
     private TextMeshProUGUI textHud;
+
+    public GameObject Kong;
+
+    int comScore = 0;
 
     private void OnDisable()
     {
@@ -25,13 +27,17 @@ public class ComboCtrl : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         textHud = GetComponent<TextMeshProUGUI>();
+        Kong = GameObject.Find("KingKong");
     }
 
-    public void Play(string text, Color color, Bounds bounds, float gap=0.1f)
+    public void Play(string text1, string text2, Color color, Bounds bounds, float gap=0.1f)
     {
-        textHud.text = text;
+        comScore = int.Parse(text1);
+
+        textHud.text = text1 + text2;
         textHud.color = color;
 
+        Debug.Log(comScore);
         StartCoroutine(onHUDText(bounds, gap));
     }
 
@@ -56,6 +62,7 @@ public class ComboCtrl : MonoBehaviour
             yield return null;
         }
 
+        Kong.GetComponent<Shoot>().DelScore(comScore);
         Destroy(gameObject);
     }
 }

@@ -255,7 +255,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a81927be16e0bc43ab4b898d3ed93f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentTransform: {fileID: 8709327047058903394}
+  hudTextPrefab: {fileID: 6125046452410549590, guid: 2b885573d08b2bb45b22eedeea8954cf, type: 3}
+  Score: 
   LC: {fileID: 0}
+  scorePlus: {fileID: 8709327048115046393}
   Power: 6
 --- !u!114 &8709327048115046393
 MonoBehaviour:
@@ -271,3 +275,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 0}
   hudTextPrefab: {fileID: 6125046452410549590, guid: 2b885573d08b2bb45b22eedeea8954cf, type: 3}
+  Score: 

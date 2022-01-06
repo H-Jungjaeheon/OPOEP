@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameMgr : MonoBehaviour
 {
+    public bool IsGa
     public bool Buff1on, Buff2on, Buff3on;
     public bool Shield;
     public bool GameStart = false;

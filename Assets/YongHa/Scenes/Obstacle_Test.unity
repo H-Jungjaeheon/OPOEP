@@ -160,6 +160,10 @@ MonoBehaviour:
   Princessobj: {fileID: 0}
   StopButton: {fileID: 0}
   SpawnInterval: 0
+  Require1: 0
+  Require2: 0
+  Require3: 0
+  PrincessGauge: {fileID: 0}
 --- !u!4 &620986808
 Transform:
   m_ObjectHideFlags: 0
@@ -181,6 +185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4095402876709550755, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5015683155809708177, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4
@@ -247,6 +255,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7424059982381091667, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
       propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424059982381091667, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7424059982381091677, guid: b758e949695a52246a3213842fe6e7f3, type: 3}
@@ -547,6 +559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KingKong
       objectReference: {fileID: 0}
+    - target: {fileID: 8709327047058903396, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b81542eb000a524e9bc98f1f6ff3ff8, type: 3}
 --- !u!1001 &7042723996065349888
@@ -556,6 +572,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3276963268853728538, guid: c84d65afa85d9934eadefe3513206e9b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276963268853728538, guid: c84d65afa85d9934eadefe3513206e9b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276963268853728538, guid: c84d65afa85d9934eadefe3513206e9b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4048649162905941040, guid: c84d65afa85d9934eadefe3513206e9b, type: 3}
       propertyPath: WarningTime
       value: 0.3

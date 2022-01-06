@@ -21,8 +21,7 @@ public class Obstacle : MonoBehaviour
     float posx;
 
     [Header("Warning")]
-    [SerializeField]
-    GameObject Warning;
+    public GameObject Warning;
     public float WarningTime;
 
     float delay = 0.5f;
@@ -30,7 +29,8 @@ public class Obstacle : MonoBehaviour
     bool Spawn = false;
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
         GM = FindObjectOfType<GameMgr>();
     }
     void Start()
@@ -57,13 +57,14 @@ public class Obstacle : MonoBehaviour
     }
     public void FallObstacle()
     {
+
         if (transform.position.y - player.transform.position.y <= 10 && !Spawn)
         {
-            GameObject warning = Instantiate(Warning, new Vector2(transform.position.x, GameObject.Find("Main Camera").transform.position.y + 2), Quaternion.identity);
+            GameObject warning = Instantiate(Warning, new Vector2(transform.position.x, GameObject.FindGameObjectWithTag("MainCamera").transform.position.y + 2), Quaternion.identity);
             warning.GetComponent<Warning>().delay = WarningTime;
             Spawn = true;
         }
-        if (transform.position.y - player.transform.position.y <= 8 && GameObject.Find("Warning(Clone)") == null)
+        if (transform.position.y - player.transform.position.y <= 8 && Spawn)
             transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
 
@@ -113,7 +114,7 @@ public class Obstacle : MonoBehaviour
                 {
                     //if (Random.Range(0, 101) >= 20)
                     //{
-                        
+
                     //}
 
                 }
@@ -123,7 +124,7 @@ public class Obstacle : MonoBehaviour
                 }
 
             }
-            Destroy(gameObject);
+
         }
     }
 

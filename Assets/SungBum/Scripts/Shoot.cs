@@ -7,8 +7,10 @@ public class Shoot : ScorePlus
     public static Shoot Instance  { get; private set; }
     public LineCtrl LC;
 
-    Vector2 PlayerPos;
-    Vector2 MovePlayerPos;
+    [HideInInspector]
+    public Vector2 PlayerPos;
+    [HideInInspector]
+    public Vector2 MovePlayerPos;
 
     Camera cam;
     Vector2 startPoint;
@@ -70,8 +72,8 @@ public class Shoot : ScorePlus
 
             
             MovePlayerPos = PlayerPos + (startPoint - endPoint);
-            scorePlus.SpawnHUDText(Mathf.Round((Vector2.Distance(startPoint, endPoint)) * 100).ToString(), "X " +comboCnt.ToString(), Color.red);
-            AddScore((int)Mathf.Round((Vector2.Distance(startPoint, endPoint)) * 100));
+            scorePlus.SpawnHUDText(Mathf.Round((Vector2.Distance(startPoint, endPoint)) * 40).ToString(), "X " +comboCnt.ToString(), Color.red);
+            AddScore((int)Mathf.Round((Vector2.Distance(startPoint, endPoint)) * 40));
 
             LC.EndLine();
         }

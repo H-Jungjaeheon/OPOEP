@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Princess
+  - OverZone
+  - Wall
   layers:
   - Default
   - TransparentFX

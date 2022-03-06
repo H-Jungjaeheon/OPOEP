@@ -27,10 +27,10 @@ public class Obstacle : MonoBehaviour
     float delay = 0.5f;
 
     bool Spawn = false;
+
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
-        //player = GameObject.FindGameObjectWithTag("Player");
         GM = FindObjectOfType<GameMgr>();
     }
     void Start()
@@ -60,7 +60,7 @@ public class Obstacle : MonoBehaviour
 
         if (transform.position.y - player.transform.position.y <= 10 && !Spawn)
         {
-            GameObject warning = Instantiate(Warning, new Vector2(transform.position.x, GameObject.FindGameObjectWithTag("MainCamera").transform.position.y + 2), Quaternion.identity);
+            GameObject warning = Instantiate(Warning, new Vector2(transform.position.x, Camera.main.transform.position.y + 2), Quaternion.identity);
             warning.GetComponent<Warning>().delay = WarningTime;
             Spawn = true;
         }
@@ -112,17 +112,12 @@ public class Obstacle : MonoBehaviour
             {
                 if (GM.Buff1on)
                 {
-                    //if (Random.Range(0, 101) >= 20)
-                    //{
-
-                    //}
 
                 }
                 else
                 {
 
                 }
-
             }
 
         }

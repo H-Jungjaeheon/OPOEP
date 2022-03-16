@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
     float delay = 0.5f;
 
     bool Spawn = false;
-
+    AnimationState AnimationState;
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
